@@ -13,7 +13,10 @@ function makeGrid(grid) {
     squareGrid.style.width = `calc(100% / ${grid})`;
     squareGrid.style.height = `calc(100% / ${grid})`;
     squareGrid.addEventListener("mouseenter", () => {
-      squareGrid.style.backgroundColor = "black";
+      squareGrid.style.backgroundColor = "rgb(0 0 0)";      
+      let currentOpacity = parseFloat(squareGrid.style.opacity) || 0;      
+      currentOpacity = Math.min(currentOpacity + 0.2, 1);  
+      squareGrid.style.opacity = currentOpacity;
     });
   }
 }
@@ -28,5 +31,4 @@ document.addEventListener("DOMContentLoaded", function () {
     makeGrid(grid);
   });
 });
-
 makeGrid(16);
